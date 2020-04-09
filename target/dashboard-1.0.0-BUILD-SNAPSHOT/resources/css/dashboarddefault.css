@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+div#dashboard {
+    display: block;
+    position: relative;
+}
+
+.widget {
+    position: absolute;
+    display: block;
+    border: 1px solid #33333320;
+}

@@ -200,13 +200,14 @@ function schedulItemLoad(item, area, all, write){
 		selectbtn($(target).find('input').data('wbtodono'));
 	});
 	
+	console.log(area);
 	
 	if(!write){
 		$(area).append(target);
 	} else {
-		const firstInput = area.querySelector('input[type=text]');
+		const firstInput = area.querySelector('span');
 		if(firstInput){
-			$(firstInput).before(target);
+			$(firstInput).after(target);
 		} else {
 			$(area).append(target);
 		}

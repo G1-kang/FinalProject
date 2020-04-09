@@ -1,0 +1,346 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800|Nanum+Myeongjo:400,700,800|Noto+Sans+KR:400,700,900&display=swap&subset=korean');
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+*:focus {
+	outline:none !important;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: 0.5pt;
+	font-weight: 400;
+	color: #3d3d3d;
+}
+
+a, a:link, a:hover, a:visited {
+	text-decoration: none;
+	color: #3d3d3d;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+.fadeOut {
+	opacity: 0;
+}
+
+.backgroundImg {
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: fixed;
+	top: 0;
+	opacity: 0;
+	z-index: 1;
+	transition-duration: 5s;
+}
+
+.img1 {
+	background-image: url(../images/bg_1.jpg);
+}
+
+.img2 {
+	background-image: url(../images/bg_2.jpg);
+}
+
+.img3 {
+	background-image: url(../images/bg_3.jpg);
+}
+
+.img4 {
+	background-image: url(../images/bg_4.jpg);
+}
+
+.img5 {
+	background-image: url(../images/bg_5.jpg);
+}
+
+.img6 {
+	background-image: url(../images/bg_6.jpg);
+}
+
+.img7 {
+	background-image: url(../images/bg_7.jpg);
+}
+
+.img8 {
+	background-image: url(../images/bg_8.jpg);
+}
+
+.img9 {
+	background-image: url(../images/bg_9.jpg);
+}
+
+.backgroundDiv {
+	background-color: #323232d4;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+}
+
+section {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 3;
+}
+
+footer {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: max-content;
+	background-color: #323232;
+	padding: 10px 0;
+	z-index: 4;
+}
+
+footer p {
+	text-align: center;
+	font-weight: 100;
+	font-size: 7pt;
+	color: #838384;
+}
+
+article#content {
+	display: block;
+	position: absolute;
+	height: inherit;
+	width: inherit;
+}
+
+div.infoBox {
+	display: block;
+	position: absolute;
+	z-index: 10009;
+	width: max-content;
+	height: max-content;
+	background-color: #ffffe6;
+	color: #564c4c;
+	padding: 5px;
+	font-size: 8pt;
+}
+
+div#bgBlack {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10001;
+	width: 120%;
+	height: 120%;
+	background-color: #00000090;
+}
+
+
+div.boxOpen, div.customMenu {
+	display: block;
+	position: absolute;
+	background-color: #ffffff;
+	width: max-content;
+	height: max-content;
+	padding: 20px;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px #00000050;
+	text-align: center;
+}
+
+div.boxOpen{
+	z-index: 10003;
+}
+
+div.customMenu {
+	z-index: 10004;
+	width: 200px;
+	height: max-content;
+	padding: 5px 0px;
+	position: fixed;
+}
+
+.boxOpen>p {
+	text-align: center;
+	color: #d82d2d;
+	font-size: 11pt;
+	letter-spacing: 1pt;
+	font-weight: 600;
+	margin: 8px auto;
+}
+
+.grayBtn {
+	display: inline-block;
+	border: 0px solid;
+	border-radius: 5px;
+	background-color: #599ed6;
+	padding: 4px 8px;
+	color: #fff;
+	font-size: 10pt;
+	font-weight: 600;
+	letter-spacing: 0.5pt;
+	margin: 5px auto;
+}
+
+li.menuLi {
+	float: none;
+	padding: 4px 15px;
+	font-size: 9.5pt;
+	font-weight: 500;
+	color: #999999;
+	border: 0;
+	text-align: left;
+}
+
+li.menuLi:hover {
+	color: #fff;
+	background-color: #37c6f4;
+}
+
+input, textarea {
+	display: block;
+	width: 190px;
+	padding: 7px;
+	margin: 10px 0;
+	font-size: 9pt;
+	font-weight: 600;
+	letter-spacing: 1pt;
+}
+
+
+input::placeholder, textarea::placeholder {
+	font-size: 9pt;
+	-webkit-text-fill-color: #aaaaaa !important;
+}
+
+input[type="text"], input[type="text"]:active, input[type="text"]:focus,
+	input[type="password"], input[type="password"]:active, input[type="password"]:focus,
+	input[type="email"], input[type="number"], input[type="tel"], input[type="url"], textarea
+	{
+	box-shadow: 0 0 0 1000px #eee inset, 0 0 4px #989898;
+	border: 0;
+	background-color: #eee;
+	border-radius: 5px;
+	-webkit-text-fill-color: #3d3d3d;
+}
+
+input[type="submit"], input[type="button"] {
+	width: 100%;
+	border: 0px;
+	border-radius: 5px;
+}
+
+textarea {
+	white-space: pre;
+}
+
+.displayNone {
+	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	border: 1px solid #69aeb7;
+	border-radius: 5px;
+	background-color: #26C6DA;
+}
+
+::-webkit-scrollbar-thumb {
+	width: 4px;
+	background-color: #3ea0ad;
+	border-radius: 5px;
+	box-shadow: 0 1px 0px 0px #367279;
+}
+
+.colorPicker {
+    display: block;
+    position: relative;
+    text-align: left;
+    width: max-content;
+    height: max-content;
+}
+
+.colorArea {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+}
+.colorView {
+    position: relative;
+    top: -180px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgb(204, 204, 204);
+    margin: auto 5.5px;
+    background-color: rgb(174, 101, 86);
+}
+
+.colorPointer {
+	pointer-events: none;
+	position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 50%;
+}
+
+input.colorHue {
+    display: inline-block;
+    -webkit-appearance: none;
+    outline: none;
+    transform: rotate(90deg);
+    width: 175px;
+    padding: 0;
+    border: 1px solid #ccc;
+    position: absolute;
+    right: -73px;
+    top: 91px;
+}
+
+input[type=range].colorHue::-webkit-slider-runnable-track {
+	background: linear-gradient(to right, hsl(0, 100%, 50%),
+		hsl(35, 100%, 50%) 10%, hsl(71, 100%, 50%) 20%, hsl(107, 100%, 50%)
+		30%, hsl(143, 100%, 50%) 40%, hsl(179, 100%, 50%) 50%,
+		hsl(215, 100%, 50%) 60%, hsl(251, 100%, 50%) 70%, hsl(287, 100%, 50%)
+		80%, hsl(323, 100%, 50%) 90%, hsl(359, 100%, 50%));
+}
+
+input[type=range].colorHue::-webkit-slider-thumb {
+	box-shadow: 1px 0px 1px #555;
+	border: 1px solid #ccc;
+	height: 20px;
+	width: 20px;
+	border-radius: 20px;
+	background: white;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -1px;
+}
+
+.colorPickerBtn {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #00000063;
+    margin: 0 5px !important;
+}
+
+.eventDisabled {
+	pointer-events:none;
+}

@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+div#con {
+    width: max-content;
+    height: max-content;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #cccccb;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px #999999;
+    text-align: center;
+    margin: 40px auto;
+}
+
+p {
+	position:relative;
+}
+
+p#siteName {
+    letter-spacing: 1.5pt;
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+fieldset {
+    border: 0;
+    border-top: 1px solid #bbbbbb;
+    padding: 10px 5px 0 5px;
+    margin: 10px 0;
+}
+
+legend {
+    text-align: center;
+    padding: 0 20px;
+    font-size: 11pt;
+    font-weight: 600;
+    color: #bbbbbb;
+}
+
+input.signInBtn {
+    color: #fff;
+    background-color: #37c6f4;
+}
+
+input.signUpBtn {
+    color: #fff;
+    background-color: #ed1f59;
+}
+
+
+#idAndPwFind {
+    color: #599ed6;
+    font-size: 8pt;
+    letter-spacing: 1pt;
+    text-align: center;
+}
+
+span.icon {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 5;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin: 4.5px 0px 0px 0px;
+    left: 20px;
+}
+
+input.faceSignInBtn {
+    background-color: #3c5999;
+    color: #fff;
+}
+
+span.facebookIcon {
+    background-image: url(../images/icon/facebookIcon.svg);
+}
+
+input.kakaoSignInBtn {
+    background-color: #fff100;
+    color: #391f1f;
+}
+
+span.kakaoIcon {
+    background-image: url(../images/icon/kakaoIcon.svg);
+}
+
+#google-login-btn {
+    background-image: url(../images/icon/btn_google_signin_light_focus_web@2x.png);
+    width: 99%;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-position-x: -6px;
+    background-position-y: -10px;
+    background-size: 105%;
+}
+
+
+.signUpImgDiv {
+	display: block;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    padding: 6px 0;
+}
+
+.signUpImg {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 1.5px solid #aaa;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.proImg {
+	position: absolute;
+    width: 83px;
+    height: 83px;
+    left: -1.5px;
+    top: -1.5px;
+    border: 0;
+}
+
+input[type="file"] {
+    width: 500px;
+    height: 500px;
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    opacity: 0;
+}
+
+span.ImgText {
+    color: #ccc;
+    position: relative;
+    top: 15px;
+    font-size : 9pt;
+	font-weight : 300;
+}
+
+span.noneCheck {
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    background-color: #ccc;
+    border-radius: 50%;
+    top: 7px;
+    right: -2px;
+}

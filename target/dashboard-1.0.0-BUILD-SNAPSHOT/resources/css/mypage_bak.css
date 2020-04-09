@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+.dashItem {
+    display: block;
+    position: relative;
+    width: 230px;
+    height: 125px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #87aeb0;
+    float: left;
+}
+
+.dashItem_head {
+    display: inline-block;
+    width : 100%;
+    margin: 5px 0 10px 0;
+    font-size: 13pt;
+    font-weight: 600;
+    letter-spacing: 0.5pt;
+    color: #dbf0f1;
+}
+
+.dashItem_body {
+    display: inline-block;
+    width : 100%;
+    font-size: 10pt;
+    letter-spacing: 0.5pt;
+    color: #00000090;
+    line-height: 18pt;
+}
+
+.dashItem_foot {
+    display: inline-block;
+    width : 100%;
+    text-align: right;
+    width: 100%;
+    margin: 10px 0 5px 0;
+}
+
+
+article#dashAddarticle {
+    display: block;
+    position: absolute;
+    width: 400px;
+    height: max-content;
+    background-color: #ffffff;
+    z-index: 10000;
+    border: 0.5px solid #00000050;
+    box-shadow: 0px 0px 2px 0px #00000050;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+div#dashAddDiv, div#dashRuleDiv, div#dashAddMemberSearch, div#dashAddMemberList {
+    display: block;
+    width: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0.5px solid #00000050;
+    box-shadow: 0px 0px 1px #00000050;
+    margin-bottom: 10px;
+}
+
+div#dashAddDiv {
+	height: 175px;
+}
+
+div#dashRuleDiv {
+    height: 240px;
+}
+
+div#dashAddSubmit {
+	width:100%;
+    display: inline-block;
+}
+
+div#dashAddSubmit input[type="button"]:nth-child(2) {
+	float: right;
+}
+
+div#dashAddSubmit input[type="button"]:nth-child(1) {
+	float: left;
+}
+
+#dashAddarticle p {
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.5pt;
+    color: #67827f;
+    margin: 8px 0;
+}
+
+div#dashAddDiv input[type="text"]{
+    display: inline-block;
+    width: 96%;
+}
+
+div#dashRuleDiv input[type="text"],div#dashRuleDiv input[type="number"],
+div#dashAddMemberSearch input[type="text"]
+{
+    display: inline-block;
+    margin: 0 8px;
+}
+
+
+
+input[type="text"], input[type="number"] {
+	width: 130px;
+    height: 12px;
+    border: 0.5px solid #00000050;
+    border-radius: 5px;
+    font-size: 10pt;
+    letter-spacing: 0.5pt;
+    color: #555555;
+    padding: 6px;
+}
+
+input[type="button"], input[type="submit"] {
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #607D8B;
+    padding: 4px 8px;
+    color: #ECEFF1;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.5pt;
+}
+
+#dashAddDiv textarea {
+    display: inline-block;
+    width: 99%;
+    height: 65px;
+    border: 0.5px solid #00000050;
+    border-radius: 5px;
+    resize: none;
+}
+
+div#dashRuleArea,div#dashRuleArea2, div#dashMemberArea {
+    width: 100%;
+    height: 76px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    overflow-y: overlay;
+}
+
+.dashRuleItem, .memberItem {
+    float: left;
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+    margin: 5px;
+    background-color: #BDBDBD;
+    border-radius: 5px;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.5pt;
+    color: #616161;
+}
+
+a.delDRule, a.delMember {
+    display: inline-block;
+    border-radius: 50%;
+    padding: 0 4px 0 4px;
+    margin: 0 0 0 5px;
+    background-color: #E0F7FA;
+    color: #00838F;
+    text-align: center;
+    font-size: 9pt;
+}
+
+.ruleCheck {
+	color : #fff;
+	background-color : rgb(82, 199, 177);
+}
+

@@ -1,0 +1,9 @@
+diff a/src/main/webapp/resources/js/crawling.js b/src/main/webapp/resources/js/crawling.js	(rejected hunks)
+@@ -106,6 +106,7 @@
+ 											<p class ="wcrwlcontent">${json[i]['wcrwlcontent']}</p>
+ 											<p class="wcrwldate">${json[i]['wcrwldate']}		<a href = "${json[i]['wcrwllink']}" target="_blank"><img src = 'https://ssl.pstatic.net/sstatic/search/pc/img/sp_sns.png' /></a></p>
+ 									
++<<<<<<< HEAD
+ 										</div>`;
+ =======
+ 										</div>

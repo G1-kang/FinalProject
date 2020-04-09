@@ -1,0 +1,325 @@
+@charset "UTF-8";
+
+
+.dashboard {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#widgetArea {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 95%;
+    padding: 0;
+    overflow: overlay;
+    background-color: #E1F5FE;
+}
+
+
+.widgetAddBox1 fieldset, .widgetAddBox2 fieldset {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 339.333px;
+    margin: 10px 5px;
+    float: left;
+}
+
+
+.widgetAddBox1 fieldset div,
+.widgetAddBox2 fieldset div {
+	margin : 8px 0;
+}
+
+.widgetSetting > p,
+.widgetRuleSetting > p,
+.widgetAddBox1 fieldset > div > p,
+.widgetAddBox2 fieldset > div > p,
+.widgetRuleGroupBox p,
+.widgetRuleIndividualBox p {
+	display: inline-block;
+	min-width: 80px;
+    max-width: max-content;
+    font-size: 12pt;
+    text-align: left;
+    text-indent: 3px;
+    color: #599ed6;
+}
+
+
+.widgetAddBox1 input[type=text],
+.widgetAddBox2 input[type=text],
+.widgetAddBox1 input[type=number],
+.widgetAddBox2 input[type=number],
+.widgetAddBox1 textarea,
+.widgetAddBox2 textarea {
+	display : inline-block;
+	width: 65%;
+	margin : 5px 0 5px 5px;
+}
+
+
+.widgetAddBox1 select,
+.widgetAddBox2 select {
+    display: inline-block;
+    margin: 5px 0px 5px 5px;
+        width: 70%;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1pt;
+    box-shadow: 0 0 0 1000px #eee inset, 0 0 4px #989898;
+    border: 0;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+
+.widgetPreview {
+    height: 85%;
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.line1, .line2 {
+    margin: 0 !important;
+    position: absolute;
+    z-index: 501;
+}
+
+.line2 {
+	border-right: 1px dashed #ccc;
+    width: 50%;
+    height: 100%;
+}
+
+.line1 {
+	border-bottom: 1px dashed #ccc;
+    width: 100%;
+    height: 50%;
+}
+
+.widget {
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px #21537260;
+    overflow: hidden;
+    margin: 0px !important;
+}
+
+.widgetHeader {
+    margin: 0 !important;
+    width: 100%;
+    padding: 0px;
+}
+
+.widgetHeader p {
+	width : 100%;
+	word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.widgetHeader p span:nth-child(1) {
+    color: #fff;
+    margin: 0px 5px;
+}
+
+.widgetHeader p span:nth-child(2) {
+    font-size: 10pt;
+    font-weight: 100;
+    position: relative;
+    bottom: 1px;
+    color: inherit;
+}
+
+.widgetContent {
+	margin: 5px !important;
+    position: relative;
+    overflow: overlay;
+}
+
+.widgetAddFooter {
+	margin : 0 5px;
+    display: block;
+    clear: both;
+}
+
+span.selectRule {
+	color:#fff;
+    background-color:#417d98 !important;
+}
+
+.widgetMoveArea {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.widgetHeaderArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px 5px 0 5px;
+    width: -webkit-fill-available;
+    height: 25px;
+}
+
+.widgetRuleSetting span{
+    display: block;
+    padding: 4px 0;
+    margin: 5px 0;
+    width: 100%;
+    background-color: #81D4FA;
+    text-align: center;
+    border-radius: 5px;
+    letter-spacing: 1pt;
+}
+
+.widgetRuleSetting span:hover{
+    color:#fff;
+    background-color:#417d98;
+}
+
+.widgetAddBox2 input[type=number] {
+    margin: 5px 0;
+    width: 44.5%;
+    display: inline-block;
+}
+
+.memberItem span,
+.ruleItem span {
+	display: inline-block;
+    position: relative;
+    width: 65px;
+    top: 1px;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: inherit;
+}
+
+.memberItem span:nth-child(1),.ruleItem span:nth-child(1)  {
+    width: 150px;
+}
+.memberItem span img {
+	border-radius: 50%;
+	width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+
+p.ruleItem:nth-last-child(1),
+p.memberItem:nth-last-child(1) {
+    border-bottom: 1px solid #ccc;
+}
+
+p.memberItem,
+p.ruleItem {
+    height: max-content;
+    padding: 2px;
+    position: relative;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+p.memberItem:hover,
+p.ruleItem:hover {
+	background-color: #B2EBF2;
+    color: #00838F;
+}
+
+p.select {
+	background-color: #B2EBF2;
+    color: #00838F;
+}
+
+.widgetPreviewScaleBtn {
+    position: absolute;
+    z-index : 502;
+    margin: 5px !important;
+}
+
+.widgetPreviewScaleMinus,
+.widgetPreviewScalePlus {
+    display: block;
+    height: 20px;
+    width: 20px;
+    padding: 3px;
+    margin: 5px !important;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px #ccc;
+    background-color: #fff;
+}
+
+.widgetRuleList li {
+    color: #3d3d3d;
+    font-weight: 100;
+    font-size: 8pt;
+    text-align: center;
+    width: 75px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+.widgetRuleList ul li:nth-child(2){
+	width: 150px;
+}
+
+.widgetRuleList {
+    width: inherit;
+    height: inherit;
+    overflow: visible overlay;
+    margin: 0 !important;
+}
+
+.widgetRuleList ul {
+    width: max-content;
+    height: 27.2px;
+    display: block;
+}
+
+pre.dashAlert {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    font-size: 15pt;
+    font-weight: 500;
+    line-height: 32pt;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 1.5pt;
+}
+
+div.alertDiv {
+	position: fixed;
+	opacity:0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: #00000080;
+    transition-duration: 0.8s;
+}

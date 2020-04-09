@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+.wboardcon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+.wtasklist {
+    width: 22%;
+    height: 92%;
+    margin: 0.5%;
+    padding: 1%;
+    box-shadow: 0px 1px 2px 1px #aaa;
+    float: left;
+    overflow: hidden visible;
+}
+
+.wtasklist p{
+	height: 36px;
+	pointer-events:none;
+}
+
+input.wbinput, input.wbinputMy {
+    display: inline-block !important;
+    width: 70% !important;
+    padding: 4% 18% 4% 4% !important;
+    margin: 4% !important;
+}
+
+.wtasklist img {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+    width: 10%;
+    box-shadow: 0 0 1px 1px #5656569e;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+}
+
+.wboardcon input[type="text"],
+.wblistobj input[type="text"],
+.writeContent input[type="text"],
+.wucontents input[type="text"] {
+	display: block;
+    width: 290px;
+    padding: 7px;
+    margin: 10px 5px;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+
+.writeContent{
+	width: max-content; 	
+}
+
+
+input.wtxt {
+    width: 220px !important;
+    resize: none;
+}
+input.wtitle {
+    width: 220px !important;
+    resize: none;
+}
+input.wdate {
+    width: 220px !important;
+    resize: none;
+}
+
+div.wcontent {
+    width: 96.5%;
+    height: 200px;
+    resize: none;
+    white-space: pre-wrap;
+    text-align:left;
+    box-shadow: 0 0 0 1000px #eee inset, 0 0 4px #989898;
+    border: 0;
+    background-color: #eee;
+    border-radius: 5px;
+    -webkit-text-fill-color: #3d3d3d;
+    padding-left: 15px;
+}
+
+
+.writeContent {
+    width: 350px;
+    height: max-content;
+    text-align: initial;
+    padding: 5px;
+}
+
+span.colName {
+    width: 75px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+    letter-spacing: 1pt;
+}
+
+.colName + span {
+	vertical-align: middle;
+}
+
+.wbdateP span {
+	vertical-align: middle;
+}
+
+.writeContent p {
+    height: 25px;
+    margin: 5px 0;
+}
+
+.wbcontentDiv {
+    min-height: 350px;
+    padding: 5px;
+}
+
+span.modifyBtn {
+    padding: 0px 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.writeContent p {
+    height: 28px;
+    margin: 5px 0;
+}
+
+#wbdelete{
+	width: 30px;	
+}
+
+#wupic{
+	width: 282px !important; 
+}
+#wutitle{
+	width: 282px !important;
+}
+.winsertbtn{
+	margin-top: 10px;
+}
+.winsertbtn{
+	margin-top: 10px;
+}
+#wbhibtn{
+	margin-top: 10px;
+}
+.wdate span{
+	min-width: 50px;
+}
+
+#summernotediv{
+	text-align: left;
+}
+
+#wbstartdate{
+	width: 125px !important;
+	text-align: center;
+}
+
+#wbenddate{
+	width: 125px !important;
+	text-align: center;
+}
+
+.wbtadd {
+    width: 15px !important;
+    height: 15px !important;
+    font-family: serif;
+    margin-left: 13px;
+    margin-top: -2px;
+    background: powderblue;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-right: 6px;
+    padding-bottom: 11px;
+    border-radius: 75px !important;
+    font-size: 18pt;
+    box-sizing: content-box;
+    float: right;
+}
+
+.cpwtasklist{
+	display: inline-flex;
+}
+
+.wblistdiv {
+	display: block;
+	width: max-content;
+	height: max-content;
+	border: 0;
+	box-shadow: none;
+}
+
+
+/*<!-- 글쓰기  -->*/
+
+.wblistdiv{
+	width: 350px;
+}
+
+#wbenddate1, #wbstartdate1{
+    height: 15px;
+    width: 133px !important;
+    text-align: center;
+    margin: 10px 5px;
+}
+
+#calconf{
+	width: 42px !important;
+    margin-left: 10px;
+}
+
+.sptag{
+	display: inline-flex;
+}
+
+#btnsc{
+	display: inline-flex;
+}
+
+#wbsend{
+	width: 85px !important;
+   
+}
+
+input.numInput.cur-year {
+    margin: 0 8px;
+}
+
+.flatpickr-current-month {
+    display: inline-block;
+    height: 40px;
+}
+
+.flatpickr-month {
+    height: 45px;
+}
+
+.flatpickr-prev-month svg, .flatpickr-next-month svg {margin-top: 5px;}
+
+.flatpickr-prev-month:hover, .flatpickr-next-month:hover {
+    vertical-align: middle;
+}
+
