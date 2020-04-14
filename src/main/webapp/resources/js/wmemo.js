@@ -38,12 +38,14 @@ function wmemoBox(widget){
 			const wmMsg = o.querySelector('span.wmMsg');
 
 			const wmContent = o.querySelector('.wmContent');
-
+			
+			// 이미지 크기 조절 이벤트 등록
 			const imgs = o.querySelectorAll('img');
 			imgs.forEach(img=>{
 				imageScaleBoxFun(img, o, widget);
 			});
 
+			// 기능에 대한 웹 소켓 구독
 			widget.websocket.memoClient = client.subscribe('/sub/wmemo/'+widget.info.wno,(res)=>{
 
 				const msg = JSON.parse(res.body);
@@ -69,11 +71,13 @@ function wmemoBox(widget){
 
 			});
 
+			// 입력값이 있을 시 아래 이벤트 발동 / 각 함수들은 util 참조
 			wmContent.addEventListener('input', (e)=>{
 
 				const tmpSpan = getCusor(wmContent);
 				const prevTag = tmpSpan.previousSibling;
-
+				
+				// 추가된 태그가 img라면 이미지 크기 조절 함수 등록
 				if(prevTag && prevTag.tagName && prevTag.tagName.toLowerCase() === 'img'){
 					imageScaleBoxFun(prevTag, wmemoDiv, widget);
 				}
@@ -85,13 +89,14 @@ function wmemoBox(widget){
 			});
 
 
-
+			// 커서 모양 버그 픽스
 			o.addEventListener('mousemove',(e)=>{
 //				e.preventDefault();
 //				e.stopPropagation();
 				widget.style.cursor = 'default';
 			});
 
+			// 기본으로 div 태그로 줄바꿈 되는것을 p태그로 변경
 			wmContent.addEventListener('keypress',(e)=>{
 
 				if(e.keyCode === 13){
@@ -100,7 +105,9 @@ function wmemoBox(widget){
 
 			});
 
-
+			
+			
+			// 각 상단 메뉴들 하위 메뉴 생성 및 이벤트 등록
 			const pop = o.querySelector('.pop');
 
 			const fontBtn = o.querySelector('.fontBtn');
@@ -200,12 +207,17 @@ function wmemoBox(widget){
 
 			const imagesUploadBtn = o.querySelector('.imagesUploadBtn');
 
+			// 이미지 등록 이벤트
 			imagesUploadBtn.addEventListener('mousedown',(e)=>{
-
+				
+				
+				// 버튼 누를시, 현재 커서 위치에 span 등록
 				getCusor(wmContent);
 
+				// 등록 버튼 두번 못누르게 막기
 				imagesUploadBtn.disabled = 'true';
 
+				// 이미지 등록 박스 폼 만들기
 				const imageDiv = addObject(null,'div','imageDiv',false, (o)=>{
 
 					o.innerHTML = `
@@ -227,12 +239,14 @@ function wmemoBox(widget){
 					const fileLabel = o.querySelector('.fileLabel');
 					const file = o.querySelector('input[type="file"]');
 
+					// 파일 업로드 시 이벤트
 					file.addEventListener('change',()=>{
 						let reader = new FileReader();
 
 						if(file.files){
 							reader.addEventListener('load',(e)=>{
 
+								// 이미지 종류 확인
 								const fileInfo = e.target.result.split(',')[0];
 
 								const res = fileInfo.indexOf('image');
@@ -242,15 +256,20 @@ function wmemoBox(widget){
 									const resSrc = e.target.result;
 
 									const img = `<img id="addImg" src="${resSrc}"/>`;
-
+									
+									
+									// 이미지 등록 버튼 눌르면서 커서 위치에 생성한 span 위치에 커서 다시 셋팅 후 해당 span 삭제
 									setCusor(wmContent);
 
+									// 현재 커서 위치에 이미지 삽입
 									document.execCommand('insertHTML', false, img );
 
+									// 현재 등록한 이미지 가져오기
 									const tag = wmContent.querySelector('#addImg');
 
 									tag.id = '';
 
+									// 새로 등록된 이미지에 이미지 크기 조절 이벤트 등록
 									imageScaleBoxFun(tag, wmemoDiv, widget);
 
 									const imageBox = imageDiv.parentNode;
@@ -276,6 +295,7 @@ function wmemoBox(widget){
 
 				});
 
+				// URL 이미지 등록 폼 생성
 				const imageInsert = addObject(null, 'input', ['grayBtn', 'imageInsert'], false, (o)=>{
 					o.type='button';
 					o.value='이미지 삽입';

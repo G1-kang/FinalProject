@@ -87,6 +87,9 @@ public class MainController {
 		
 		
 		int res = memberBiz.insert(memberDto);
+		
+		logger.info("[ INFO ] res : " + res);
+		
 		if(res > 0) {
 			logger.info("[ INFO ] : MainController > postSignUp [success]" + memberDto);
 			memberDto.setMpw(null);

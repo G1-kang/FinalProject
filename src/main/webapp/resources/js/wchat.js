@@ -10,6 +10,8 @@ function wchatBox(widget){
 	let oldChatObject = [];
 	
 	if(!widget.info.preview){
+		
+		// 과거 채팅 기록 불러오기
 		xhrLoad('get', 'widget/wchat/'+ widget.info.wno, null, (res)=>{
 			
 			if(res){
@@ -75,6 +77,8 @@ function wchatBox(widget){
 			const wrContent = o.querySelector('.wrContent');
 			const wrChatLog = o.querySelector('.wrChatLog');
 			
+			
+			// 메세지 박스 생성 함수
 			function msgBoxLoad(msg){
 				
 				let backColor, fontColor;
@@ -105,6 +109,8 @@ function wchatBox(widget){
 					`;
 				});
 				
+				
+				// 이미지 태그가 있으면 이미지 크게 보기 이벤트 연결
 				const imgs = messageBox.querySelectorAll('img');
 				imgs.forEach(img=>{
 					img.addEventListener('mousedown', ()=>{
@@ -120,6 +126,10 @@ function wchatBox(widget){
 			
 			
 			}
+			
+			
+			// 과거 채팅 로그를 기반으로
+			// 메세지 박스 생성
 			if(oldChatObject){
 				oldChatObject.forEach(log=>{
 					msgBoxLoad(log);
@@ -128,18 +138,22 @@ function wchatBox(widget){
 			
 			
 			
-			// 소켓 연결
+			// 기능에 따른 웹 소켓 구독
 			widget.websocket.chatClient = client.subscribe('/sub/wchat/'+widget.info.wno,(res)=>{
 				const msg = JSON.parse(res.body);
+				// 누군가 메세지 보내면 해당 메세지를 기반으로 메세지 박스 생성해서 출력
 				msgBoxLoad(msg);
 			});
 			
 			
-			
+			// 마우스 모양 버그 픽스
 			o.addEventListener('mousemove',(e)=>{
 				widget.style.cursor = 'default';
 			});
 
+			
+			
+			// 아래로는 wmemo 참조 거의 동일
 			wrContent.addEventListener('keypress',(e)=>{
 
 				if(e.keyCode === 13){

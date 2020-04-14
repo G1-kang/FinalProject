@@ -2,17 +2,26 @@
  * http://usejsdoc.org/
  */
 
+// 모든 위젯 배열
 let widgets = []
 
+
+// 모든 위젯에 연결되어 있는 구독 해제
 function widgetWebSocketClose(widgets){
 	widgets.forEach(widget=>{
 		widget.websocket.close();
 	});
 }
 
+
+// 위젯 셋팅 함수 ( 위젯 셋팅할 객체, 업데이트 할 시 )
+// 좀 더 정확히는 위젯 객체의 권한 정보를 토대로
+// 해당 대시보드의 권한 정보와 매칭 시켜서
+// 사용하기 편하게 위젯 객체 info 속성의 rules 배열에 필요 정보 주입하는 함수
 function widgetSettingFun(widgetSetting, updateTarget){
 	
 	let widget
+	
 	if(!updateTarget) widget = widgetFun(widgetSetting);
 	else widget = updateTarget;
 	
@@ -61,11 +70,11 @@ function widgetSettingFun(widgetSetting, updateTarget){
 		widgets.push(widget);
 	}
 	
-	console.dir(widget);
-	
 	return widget;
 }
 
+
+// 대시보드에 종속되어 있는 모든 위젯 로드
 function widgetload(){
 	
 	// 대시보드 초기화
@@ -75,8 +84,8 @@ function widgetload(){
 	
 	oldWidgets.forEach(w=>{
 		
+		// 위젯이 에디터일 연결되어 있는 세션에서 해당 에디터 초기화
 		if(w.info.wcategory === 'CODE'){
-			console.log('dd')
 			w.editor.getSession().setUndoManager(new ace.UndoManager());
 		}
 		
@@ -85,7 +94,7 @@ function widgetload(){
 		});
 	});
 	
-	// 로드
+	// 선택 대시보드에 종속된 위젯 로드
 	xhrLoad('get','widget/list', null, (res)=>{
 		
 		const widgetSettings = JSON.parse(res);
@@ -102,6 +111,7 @@ function widgetload(){
 				o.style.transitionDuration = '';
 			});
 			
+			// 만들어진 위젯에 대한 이벤트 및 웹소켓 구독 연결
 			widget.mouseEventFun();
 			widget.scaleEventFun();
 			widget.contextMenuAddFun();

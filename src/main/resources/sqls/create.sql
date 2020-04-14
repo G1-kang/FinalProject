@@ -91,9 +91,9 @@ ALTER TABLE member
     ADD CONSTRAINT UC_mnick UNIQUE (mnick)
 /
 
-ALTER TABLE member
-	ADD CONSTRAINT UC_mname_memail_mplatform UNIQUE (mname, memail, mplatform)
-/
+--ALTER TABLE member
+--	ADD CONSTRAINT UC_mname_memail_mplatform UNIQUE (mname, memail, mplatform)
+--/
 
 ALTER TABLE member
     ADD CONSTRAINT UC_mid UNIQUE (mid)

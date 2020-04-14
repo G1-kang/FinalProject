@@ -7,6 +7,8 @@
 let mailCheck = false;
 let signUpCheck = false;
 
+
+// 정규표현식을 기반으로 상태 바꿔주는 함수
 function inputCheck(i,state,text){
     			
     const span = i.parentNode.querySelector('.noneCheck');
@@ -17,6 +19,8 @@ function inputCheck(i,state,text){
     			
 }
 
+
+// 닉네임 중복 체크 함수
 function nickCheckFun(input){
 	valueCheck(input, /^[a-zA-Z가-힣0-9]{2,15}$/,(i)=>{
 		
@@ -36,6 +40,7 @@ function nickCheckFun(input){
 }
 
 
+// 이메일 인증 체크 함수
 function emailCheckFun(input){
 	
 	const email_chkBtn = document.querySelector('input[name="memail_chk"]');
@@ -85,7 +90,10 @@ function emailCheckFun(input){
 	});
 }
 
+
+// 이미지 등록 이벤트 함수
 function imgFun(mimgpathBtn){
+	
 	mimgpathBtn.addEventListener('change',()=>{
 		
 		let reader = new FileReader();
@@ -123,7 +131,7 @@ function imgFun(mimgpathBtn){
 	});
 }
 
-
+// 아이디 및 비밀번호 찾기 박스 만드는 함수
 function idAndPwSearchOn(){
 	
 	const idSearchDiv = addObject(false, 'div','idSearchDiv', false,(o)=>{
@@ -379,8 +387,11 @@ window.onload = () => {
 		}
 	});
 	
-	const loginForm = document.getElementById('loginForm');
 	
+	
+	const loginForm = document.getElementById('loginForm');
+
+	// 로그인 폼 이벤트 연결
     loginForm.addEventListener('submit', (e)=>{
 
         e.preventDefault();
@@ -402,7 +413,12 @@ window.onload = () => {
 
     });
     
+    
+    
     const signUpBtn = document.querySelector('#signUp');
+    
+    
+    // 회원가입 폼  이벤트 연결
     signUpBtn.addEventListener('click',(e)=>{
     	
     	e.preventDefault();

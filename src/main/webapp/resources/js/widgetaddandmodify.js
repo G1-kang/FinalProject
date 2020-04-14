@@ -2,8 +2,7 @@
  * http://usejsdoc.org/
  */
 
-// 룰 등록 버튼
-
+// 위젯 권한 리스트 생성 함수
 function ruleUlCreate(rule, widgetRuleList){
 		
 		const ul = addObject(widgetRuleList,'ul', null, true,(o)=>{
@@ -11,9 +10,12 @@ function ruleUlCreate(rule, widgetRuleList){
 			o.dataset.wrcategory = rule.wrcategory;
 			
 			if(rule.wrcategory === 'group'){
+				
 				o.dataset.wrmin = rule.wrmin;
 				o.dataset.wrmax = rule.wrmax;
+				
 			} else if(rule.wrcategory === 'individual') {
+				
 				o.dataset.dmcolor = rule.dmcolor;
 				o.dataset.mimgpath = rule.imgpath;
 				o.dataset.mnick = rule.mnick;
@@ -27,6 +29,7 @@ function ruleUlCreate(rule, widgetRuleList){
 					});
 					return mid;
 				})(rule.mnick);
+				
 			}
 			
 			o.dataset.wrrwd = rule.wrrwd;
@@ -50,6 +53,8 @@ function ruleUlCreate(rule, widgetRuleList){
 		});
 }	
 
+
+// 룰 등록 버튼 생성
 function ruleAddBtn(that){
 	
 	const ruleSetting = document.querySelector('.widgetRuleSetting');
@@ -64,7 +69,6 @@ function ruleAddBtn(that){
 	
 	let tmpArray = [];
 	
-	console.log(rules);
 	
 	if(wrcategory === 'group') {
 		
@@ -165,9 +169,11 @@ function ruleAddBtn(that){
 	
 }
 
-// 모든 맴버 보기
+
+// 대시보드에 종속된 모든 맴버 보기
 function memberListOpen(e){
 	
+	// 맴버 리스트
 	const memberListDiv = addObject(null, 'div', 'memberListDiv', false, (o)=>{
 		
 		addObject(o, 'p', 'memberItem', true, (o)=>{
@@ -203,6 +209,7 @@ function memberListOpen(e){
 		
 	});
 	
+	// 맴버 선택 버튼
 	const memberListSubmitBtn = addObject(null, 'input', ['memberListSubmitBtn', 'grayBtn'], false, (o)=>{
 		
 		o.type = 'button';
@@ -237,15 +244,18 @@ function memberListOpen(e){
 		
 	});
 	
+	// 맴버 팝업
 	boxFun('현재 보드의 모든 맴버 리스트',false, [memberListDiv,memberListSubmitBtn], false, 'memberList', null, true).closeDisabledDelete(e.target);
 
 	return false;
 	
 
 }
-// 모든 룰리스트 보기
+
+// 대시보드에 종속된 권한 리스트 보기
 function ruleListOpen(e){
 	
+	// 권한 리스트
 	const ruleListDiv = addObject(null, 'div', 'ruleListDiv', false, (o)=>{
 		
 		addObject(o, 'p', 'ruleItem', true, (o)=>{
@@ -278,6 +288,8 @@ function ruleListOpen(e){
 		
 	});
 	
+	
+	// 권한 선택 버튼
 	const ruleListSubmitBtn = addObject(null, 'input', ['ruleListSubmitBtn', 'grayBtn'], false, (o)=>{
 		
 		o.type = 'button';
@@ -317,20 +329,23 @@ function ruleListOpen(e){
 		
 	});
 	
+	
+	// 권한 판업
 	boxFun('현재 보드의 모든 룰 리스트',false, [ruleListDiv, ruleListSubmitBtn], false, 'ruleList', null, true).closeDisabledDelete(e.target);
 
 	return false;
 }
 
+
+
+// 위젯 생성 및 수정 함수 ( 첫번째 인자에 수정할 위젯 넣을 시 해당 위젯 업데이트 )
 function widgetAddAndModify(){
 	
 	let widget;
 	
 	let paramWidget = arguments[0] || null;
 	
-	console.dir(paramWidget);
-	
-	// 1p 본문
+	// 위젯 생성 및 수정 1p 본문
 	const widgetSetting = addObject(null, 'div', 'widgetSetting', false, (o)=>{
 		o.style.textAlign = 'left';
 		o.innerHTML = `
@@ -397,13 +412,26 @@ function widgetAddAndModify(){
 		
 		
 		const colorDiv1 = o.querySelector('.widgetSetting > fieldset > div:nth-last-child(2)');
+		
+		
+		// colorPickerBtn ( 부모 노드, 형제노드, 콜백 함수(color, submitBtn) )
+		// 제목 배경색 버튼 생성
 		const colorTitle = colorPickerBtn(colorDiv1, false, (color,btn)=>{
+			
 			btn.style.backgroundColor = color;
+			
 			const widgetHeader = widgetSetting.querySelector('.widget .widgetHeader');
+			
 			widgetHeader.style.backgroundColor = color;
+			
+			// fontColorCheck( RGB );
+			// 설정한 배경색의 HUE 값을 계산해서 내부 글자색을 흰색으로 할지 검정색으로 할지 결정
 			widgetHeader.style.color = fontColorCheck(color);
+		
 		});
 		
+		
+		// 제목 배경색 버튼 CSS 설정
 		colorTitle.style.backgroundColor = paramWidget ? paramWidget.info.wtitlecolor : '';
 		
 		colorTitle.style.width = '25px';
@@ -411,13 +439,23 @@ function widgetAddAndModify(){
 		colorTitle.style.position = 'relative';
 		colorTitle.style.top = '7px';
 		
+		
 		const colorDiv2 = o.querySelector('.widgetSetting > fieldset > div:nth-last-child(1)');
+		
+		
+		// 본문 배경색 버튼 생성 ( 제목 배경색 버튼과 동일 )
 		const colorContent = colorPickerBtn(colorDiv2, false, (color,btn)=>{
+			
 			btn.style.backgroundColor = color;
+			
 			const widget = widgetSetting.querySelector('.widget');
+			
 			widget.style.backgroundColor = color;
+			
 		});
 		
+		
+		// 본문 배경색 버튼 CSS 설정
 		colorContent.style.backgroundColor = paramWidget ? paramWidget.info.wcontentcolor : '';
 		
 		colorContent.style.width = '25px';
@@ -426,14 +464,34 @@ function widgetAddAndModify(){
 		colorContent.style.top = '7px';
 		
 		
+		// 설정 INPUT 객체
 		const wtitle = o.querySelector('input[name=wtitle]');
 		const wcategory = o.querySelector('.wcategory');
 		const wwidth = o.querySelector('input[name=wwidth]');
 		const wheight = o.querySelector('input[name=wheight]');
-		const wzindex = document.querySelector('#widgetArea').childNodes.length + 1 ;
+		
+		// zindex 계산
+		const wzindex = (paramWidget? paramWidget.info.wzindex : (function(){
+			
+			const arr = [];
+			
+			// 모든 위젯의 zindex을 배열로 저장 
+			document.querySelector('#widgetArea').childNodes.forEach(widget=>{
+				if(widget.style.zIndex) arr.push(Number(widget.style.zIndex));
+			});
+			
+			// arrSort( 배열 ) : 배열이 숫자일 경우 배열을 작은 수 부터 큰 수로 자동 정렬;
+			const reArr = arrSort(arr);
+			
+			// 가장 큰 수에 +1 을 해서 새로 생성된 위젯은 무조건 가장 위로 올라오게
+			return Number(reArr[reArr.length-1]) + 1;
+			
+		})());
+		
 		const wtitlecolor = o.querySelectorAll('.colorPickerBtn')[0];
 		const wcontentcolor = o.querySelectorAll('.colorPickerBtn')[1];
 		
+		// 위젯 미리보기 위젯 객체 생성
 		widget = widgetFun({
 			'wtitle' : wtitle.value,
 			'wcategory' : wcategory.value,
@@ -446,20 +504,28 @@ function widgetAddAndModify(){
 			'preview' : true
 		});
 		
+		// 위젯 미리보기 객체 내부 설정
 		widget['info'] = {
 			'wcategory' : wcategory.value,
 			'preview' : true
 		};
 		
+		
 		if(paramWidget){
 			widget.info['w'+paramWidget.info.wcategory.toLowerCase()] = paramWidget.info['w'+paramWidget.info.wcategory.toLowerCase()];
 		}
 		
+		// 위젯 미리보기 가운데 자동 정렬 
+		// middlePositionFun(정렬할 객체) : 부모 객체가 position이 relative일 경우 자동으로 가운데 정렬
 		middlePositionFun(widget);
 		
 		const widgetPreview = o.querySelector('.widgetPreview');
+		
+		// 설정이 완료된 위젯 미리보기 화면에 렌더링
 		widgetPreview.insertBefore(widget, widgetPreview.childNodes[0]);
 		
+		
+		// 설정 INPUT에 이벤트 연결
 		wtitle.addEventListener('keyup',(e)=>{
 			e.preventDefault();
 			e.stopPropagation();
@@ -474,11 +540,10 @@ function widgetAddAndModify(){
 			
 			widget.style.height = e.target.value + 'px';
 			
+			// 카테고리가 맵일 경우 맵 크기 속성 조절
 			if(widget.info.wcategory === 'MAP'){
 				resizeMap(widget);
 			}
-			
-//			middlePositionFun(widget);
 			
 		});
 		
@@ -491,23 +556,27 @@ function widgetAddAndModify(){
 			
 			const wcategory = o.querySelector('.wcategory');
 			
+			// 카테고리가 맵일 경우 맵 크기 속성 조절
 			if(widget.info.wcategory === 'MAP'){
 				resizeMap(widget);
 			}
 			
-//			middlePositionFun(widget);
-			
 		});
 		
+		
+		// 카테고리가 바뀔 시
 		wcategory.addEventListener('change',(e)=>{
 			
 			widget.querySelector('.widgetHeader p span:nth-child(1)').innerHTML = e.target.value;
 			widget.info.wcategory = e.target.value;
+			
+			// 카테고리 기능 새로 불러오는 함수
 			widget.cateFun();
 			
 		});
 		
 		
+		// 위젯 미리보기 줄여 보기 버튼
 		const widgetPreviewScaleMinus = o.querySelector('.widgetPreviewScaleMinus');
 		
 		widgetPreviewScaleMinus.addEventListener('click',(e)=>{
@@ -529,6 +598,8 @@ function widgetAddAndModify(){
 			
 		});
 		
+		
+		// 위젯 미리보기 크게 보기 버튼
 		const widgetPreviewScalePlus = o.querySelector('.widgetPreviewScalePlus');
 		
 		widgetPreviewScalePlus.addEventListener('click',(e)=>{
@@ -552,7 +623,7 @@ function widgetAddAndModify(){
 		
 	});
 	
-	// 2p
+	// 위젯 생성 및 수정 2p 권한 설정 본문
 	const widgetRuleSetting = addObject(null, 'div', 'widgetRuleSetting', false, (o)=>{
 		
 		o.style.textAlign = 'left';
@@ -595,6 +666,9 @@ function widgetAddAndModify(){
 		const widgetRuleList = o.querySelector('.widgetRuleList');
 		
 		const ownerUl = widgetRuleList.querySelector('ul:nth-child(2)');
+		
+		
+		// 위젯 수정일 경우 해당 위젯의 올드 룰 생성
 		if(paramWidget){
 			paramWidget.info.rules.forEach(rule=>{
 				if(ownerUl.dataset.mnick !== rule.mnick){
@@ -604,7 +678,7 @@ function widgetAddAndModify(){
 		}
 		
 		
-		// 개인 조회 박스
+		// 대시보드 맴버 조회 박스
 		const widgetRuleIndividualBox = addObject(null, 'div', ['widgetRuleIndividualBox','targetBox'], false, (o)=>{
 			
 			o.innerHTML = `
@@ -668,7 +742,7 @@ function widgetAddAndModify(){
 			});
 			
 			const submitBtn = o.querySelector('input[type=button]:nth-child(2)');
-			console.log(submitBtn);
+			
 			submitBtn.addEventListener('click',(e)=>{
 				
 				const wrcategory = document.querySelector('.wrcategory .selectRule');
@@ -683,7 +757,7 @@ function widgetAddAndModify(){
 			});
 		});
 		
-		// 그룹 박스
+		// 대시보드 권한 조회 박스
 		const widgetRuleGroupBox = addObject(null, 'div', ['widgetRuleGroupBox','targetBox'], false, (o)=>{
 			
 			let maxNum = -1, minNum = 9999;
@@ -752,7 +826,8 @@ function widgetAddAndModify(){
 			
 		});
 		
-		// 이벤트
+		
+		// 권한 종류 이벤트
 		const wrcategory = o.querySelectorAll('.wrcategory span');
 		
 		wrcategory.forEach(item=>{
@@ -796,6 +871,8 @@ function widgetAddAndModify(){
 			
 		});
 		
+		
+		// 권한 범위 이벤트 연결
 		const wrrwd = o.querySelectorAll('.wrrwd span');
 		
 		wrrwd.forEach(item=>{
@@ -840,21 +917,38 @@ function widgetAddAndModify(){
 	
 	});
 	
-	// submit 버튼
+	// 위젯 만들기 버튼
 	const widgetAddSubmitBtn = addObject(null, 'input', ['widgetAddSubmitBtn', 'grayBtn'], false, (o)=>{
 		
+		// 버튼 CSS
 		o.type = 'button';
 		o.style.width = 'max-content';
 		o.style.margin = '5px 0px 5px 5px';
 		o.style.float = 'right';
 		o.value = paramWidget ? '수정' : '만들기';
+		
+		// 버튼 이벤트 연결
 		o.addEventListener('click', (e)=>{
 			
 			const wtitle = widgetSetting.querySelector('input[name=wtitle]').value;
 			const wcategory = widgetSetting.querySelector('.wcategory').value;
 			const wwidth = widgetSetting.querySelector('input[name=wwidth]').value;
 			const wheight = widgetSetting.querySelector('input[name=wheight]').value;
-			const wzindex = document.querySelector('#widgetArea').childNodes.length + 1 ;
+			
+			const wzindex = (paramWidget? paramWidget.info.wzindex : (function(){
+				
+				const arr = [];
+				
+				document.querySelector('#widgetArea').childNodes.forEach(widget=>{
+					
+					if(widget.style.zIndex) arr.push(Number(widget.style.zIndex));
+				});
+				
+				const reArr = arrSort(arr);
+				
+				return Number(reArr[reArr.length-1]) + 1;
+				
+			})());
 			
 			const previewWidget = widgetSetting.querySelector('.widget');
 			
@@ -878,7 +972,7 @@ function widgetAddAndModify(){
 			
 			
 			if(paramWidget){
-				
+				// 수정일 경우
 				
 				paramWidget.info.wtitle = wtitle;
 				paramWidget.info.wcategory = wcategory;
@@ -888,6 +982,7 @@ function widgetAddAndModify(){
 				paramWidget.info.wcontentcolor = wcontentcolor;
 				paramWidget.info.rules = rules;
 				
+				// 위젯 셋팅 업데이트 함수 실행
 				paramWidget.update();
 				
 				motionOnOff(widgetAddBox, 0.8, false, { setting : 'offDefault' }, null, (o)=>{
@@ -897,7 +992,9 @@ function widgetAddAndModify(){
 				
 			} else { 
 			
-
+				
+				// 위젯 새로 생성일 경우
+				// 미리보기 위젯 객체의 info 속성에 지금까지의 설정을 저장
 				widget['info'] = {
 						wtitle,
 						wcategory,
@@ -910,19 +1007,23 @@ function widgetAddAndModify(){
 				};
 
 
+				
 				motionOnOff(widgetAddBox, 0.8, false, { setting : 'offDefault' }, null, (o)=>{
+					
 					const widgetArea = document.querySelector('#widgetArea');
 
 					widget.style.transform = '';
 
 					widget.style.opacity = '0.5';
 
+					// 위젯 영역에 미리보기 위젯 이동
 					widgetArea.appendChild(widget);
 
+					// 마우스 위치에 붙이기
 					widget.style.top = e.pageY - Math.floor(widget.offsetHeight/2) + widgetArea.scrollTop + 'px';
 					widget.style.left = e.pageX - Math.floor(widget.offsetWidth/2) + widgetArea.scrollLeft + 'px';
 
-
+					
 					function mousemove(e){
 
 
@@ -933,7 +1034,8 @@ function widgetAddAndModify(){
 
 					function mouseDownAndOut(e){
 
-
+						
+						// 마우스를 클릭했을 때의 마우스 위치
 						widget.style.top = e.pageY - Math.floor(widget.offsetHeight/2) + widgetArea.scrollTop + 'px';
 						widget.style.left = e.pageX - Math.floor(widget.offsetWidth/2) + widgetArea.scrollLeft + 'px';
 
@@ -944,19 +1046,23 @@ function widgetAddAndModify(){
 						widget['info'].wtop = widget.style.top.split('px')[0];
 						widget['info'].wleft = widget.style.left.split('px')[0];
 
-
+						// widget info의 정보를 가지고 데이터베이스에 등록,
 						xhrLoad('post','widget/insert', widget['info'], (res)=>{
 
+							// 성공시 미리보기 객체 제거
 							widget.remove();
 
+							// 통신을 완료하면 등록한 위젯 넘버를 포함한 정보를 리턴 받음
 							const setting = JSON.parse(res);
 
-							console.log(setting);
-							
+							// 실제 보여질 위젯 생성
 							const w = widgetSettingFun(setting);
 
+							// 위젯 영역에 붙이기
 							widgetArea.appendChild(w);
 							
+							
+							// 위젯에 연결된 이벤트 연결 ( 위젯 이동, 위젯 크기 조정, 위젯 내부에서 커스텀 메뉴, 위젯에 종속된 기능 생성 )
 							w.mouseEventFun();
 							w.scaleEventFun();
 							w.contextMenuAddFun();
@@ -964,12 +1070,14 @@ function widgetAddAndModify(){
 							
 							const { wno, dno, rules } = w.info;
 							
+							// 대시보드에 등록된 맴버들에게 새로운 위젯이 추가되었다고 알림
 							client.send('/pub/wadd', {}, JSON.stringify({ wno, dno, rules }));
 
 						});
 
 					}
 
+					// 위젯 영역에서 해당 위젯이 만들어질 위치 지정
 					widgetArea.addEventListener('mousemove', mousemove);
 					widgetArea.addEventListener('mousedown', mouseDownAndOut);
 
