@@ -1,3 +1,5 @@
+--creat.sql파일을 실행해야하고, 그파일내에서 trigger부분은 사용하지 않고 넣어야한다 
+
 --DROP TABLE wboard [DROP CONSTRAINTS] WBOARD_PK
 --
 --ALTER TABLE wboard DROP PRIMARY KEY WBOARD_PK
